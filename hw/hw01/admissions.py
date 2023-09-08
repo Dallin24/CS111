@@ -29,7 +29,7 @@ def convert_row_type(old_list):
     return new_list
 
 def calculate_score(list):
-    score = 0.30 * (list[0] / 160) + 0.40 * (list[1] * 2) + 0.10 * (list[2]) + 0.20 * (list[3])
+    score = ((list[0] / 160)*0.3) + (((list[1] * 2) )*0.4) + ((list[2])*0.1) + ((list[3])*0.2)
     return score
 
 def is_outlier(list):
@@ -103,7 +103,9 @@ def main():
         quality_list = floatList[0:4]
         semester_list = floatList[4:8]
 
-        student_score = [student_name, ("%.2f" % calculate_score(quality_list))]
+        calculated_score = calculate_score(quality_list)
+        rounded_score = f"{calculated_score:.2f}"
+        student_score = [student_name, rounded_score]
         student_scores_list.append(student_score)
 
         if(float(student_score[1]) >= 6.00):
