@@ -38,6 +38,11 @@ def is_outlier(list):
     else:
         return False
 
+def calculate_score_improved(quality_list, student_score):
+    if((is_outlier(quality_list)) or (float(student_score[1]) >= 6.00)):
+        return True
+    else:
+        return False
 
 def main():
     # Change this line of code as needed but 
@@ -65,6 +70,7 @@ def main():
     chosen_students_list = []
     outlier_students_list = []
     chosen_improved_list = []
+    improved_chosen_list = []
 
     while index < row_count:
         line = input_file.readline()
@@ -96,6 +102,9 @@ def main():
         if((is_outlier(quality_list) and float(student_score[1]) >= 5) or (float(student_score[1]) >= 6.00)):
             chosen_improved_list.append(student_name + '\n')
         
+        if(calculate_score_improved(quality_list, student_score)):
+            improved_chosen_list.append(original_list[0:5])
+
         #print(student_name)
         #print(original_list)
         #print(newList)
@@ -123,6 +132,11 @@ def main():
     chosen_improved_file = "hw/hw01/chosen_improved.txt"
     txtfile = open(chosen_improved_file, 'w') 
     txtfile.writelines(chosen_improved_list)
+
+    improved_chosen_file = "hw/hw01/improved_chosen.csv"
+    with open(improved_chosen_file, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerows(improved_chosen_list)
 
     # TODO: make sure to close all files you've opened!
 
