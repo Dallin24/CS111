@@ -32,14 +32,25 @@ def calculate_score(list):
     score = 0.30 * (list[0] / 160) + 0.40 * (list[1] * 2) + 0.10 * (list[2]) + 0.20 * (list[3])
     return score
 
+def is_outlier(list):
+    if(list[2] == 0 or (0.30*(list[0] / 160) < 0.40*(list[1] * 2) + 2)):
+        return True
+    else:
+        return False
+
 
 def main():
     # Change this line of code as needed but 
     # make sure to change it back to "superheroes_tiny.csv"
     # before turning in your work!
+    row_count = 0
     filename = "hw/hw01/superheroes_tiny.csv"
+    with open(filename,"r") as openfile:
+        reader = csv.reader(openfile)
+        row_count = len(list(reader))
+
+    print(row_count)
     input_file = open(filename, "r")    
-    
     
     print("Processing " + filename + "...")
     # grab the line with the headers
@@ -52,11 +63,13 @@ def main():
     index = 1
     student_scores_list = []
     chosen_students_list = []
+    outlier_students_list = []
+    chosen_improved_list = []
 
-    while index <= 214:
+    while index < row_count:
         line = input_file.readline()
 
-        if index == 214:
+        if index == row_count - 1:
             line = line
         else:
             line = line[:-1]
@@ -77,6 +90,12 @@ def main():
         if(float(student_score[1]) >= 6.00):
             chosen_students_list.append(student_name + '\n')
 
+        if(is_outlier(quality_list)):
+            outlier_students_list.append(student_name + '\n')
+        
+        if((is_outlier(quality_list) and float(student_score[1]) >= 5) or (float(student_score[1]) >= 6.00)):
+            chosen_improved_list.append(student_name + '\n')
+        
         #print(student_name)
         #print(original_list)
         #print(newList)
@@ -96,6 +115,14 @@ def main():
     chosen_students_file = "hw/hw01/chosen_students.txt"
     txtfile = open(chosen_students_file, 'w') 
     txtfile.writelines(chosen_students_list)
+
+    outlier_students_file = "hw/hw01/outlier.txt"
+    txtfile = open(outlier_students_file, 'w') 
+    txtfile.writelines(outlier_students_list)
+
+    chosen_improved_file = "hw/hw01/chosen_improved.txt"
+    txtfile = open(chosen_improved_file, 'w') 
+    txtfile.writelines(chosen_improved_list)
 
     # TODO: make sure to close all files you've opened!
 
