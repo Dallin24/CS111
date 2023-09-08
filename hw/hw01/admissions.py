@@ -103,9 +103,7 @@ def main():
         quality_list = floatList[0:4]
         semester_list = floatList[4:8]
 
-        calculated_score = calculate_score(quality_list)
-        rounded_score = f"{calculated_score:.2f}"
-        student_score = [student_name, rounded_score]
+        student_score = [student_name, ("%.2f" % calculate_score(quality_list))]
         student_scores_list.append(student_score)
 
         if(float(student_score[1]) >= 6.00):
@@ -136,32 +134,42 @@ def main():
     #print(student_scores)
 
     student_scores_file = "student_scores.csv"
-    with open(student_scores_file, 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
+    with open(student_scores_file, 'w', newline='') as student_scores_csvfile:
+        csvwriter = csv.writer(student_scores_csvfile)
         csvwriter.writerows(student_scores_list)
     
     chosen_students_file = "chosen_students.txt"
-    txtfile = open(chosen_students_file, 'w') 
-    txtfile.writelines(chosen_students_list)
+    chosen_students_txtfile = open(chosen_students_file, 'w') 
+    chosen_students_txtfile.writelines(chosen_students_list)
 
     outlier_students_file = "outliers.txt"
-    txtfile = open(outlier_students_file, 'w') 
-    txtfile.writelines(outlier_students_list)
+    outlier_students_txtfile = open(outlier_students_file, 'w') 
+    outlier_students_txtfile.writelines(outlier_students_list)
 
     chosen_improved_file = "chosen_improved.txt"
-    txtfile = open(chosen_improved_file, 'w') 
-    txtfile.writelines(chosen_improved_list)
+    chosen_improved_txtfile = open(chosen_improved_file, 'w') 
+    chosen_improved_txtfile.writelines(chosen_improved_list)
 
     improved_chosen_file = "improved_chosen.csv"
-    with open(improved_chosen_file, 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
+    with open(improved_chosen_file, 'w', newline='') as  improved_chosen_csvfile:
+        csvwriter = csv.writer(improved_chosen_csvfile)
         csvwriter.writerows(improved_chosen_list)
 
     extra_improved_file = "extra_improved_chosen.txt"
-    txtfile = open(extra_improved_file, 'w') 
-    txtfile.writelines(extra_improved_list)
+    extra_improved_txtfile = open(extra_improved_file, 'w') 
+    extra_improved_txtfile.writelines(extra_improved_list)
 
     # TODO: make sure to close all files you've opened!
+
+    input_file.close()
+
+    student_scores_csvfile.close()
+    improved_chosen_csvfile.close()
+
+    chosen_improved_txtfile.close()
+    outlier_students_txtfile.close()
+    chosen_improved_txtfile.close()
+    extra_improved_txtfile.close()
 
     print("done!")
 
