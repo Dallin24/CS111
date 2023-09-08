@@ -61,7 +61,7 @@ def main():
     # make sure to change it back to "superheroes_tiny.csv"
     # before turning in your work!
     row_count = 0
-    filename = "hw/hw01/superheroes_tiny.csv"
+    filename = "superheroes_tiny.csv"
     with open(filename,"r") as openfile:
         reader = csv.reader(openfile)
         row_count = len(list(reader))
@@ -133,29 +133,29 @@ def main():
     
     #print(student_scores)
 
-    student_scores_file = "hw/hw01/student_scores.csv"
+    student_scores_file = "student_scores.csv"
     with open(student_scores_file, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(student_scores_list)
     
-    chosen_students_file = "hw/hw01/chosen_students.txt"
+    chosen_students_file = "chosen_students.txt"
     txtfile = open(chosen_students_file, 'w') 
     txtfile.writelines(chosen_students_list)
 
-    outlier_students_file = "hw/hw01/outliers.txt"
+    outlier_students_file = "outliers.txt"
     txtfile = open(outlier_students_file, 'w') 
     txtfile.writelines(outlier_students_list)
 
-    chosen_improved_file = "hw/hw01/chosen_improved.txt"
+    chosen_improved_file = "chosen_improved.txt"
     txtfile = open(chosen_improved_file, 'w') 
     txtfile.writelines(chosen_improved_list)
 
-    improved_chosen_file = "hw/hw01/improved_chosen.csv"
+    improved_chosen_file = "improved_chosen.csv"
     with open(improved_chosen_file, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(improved_chosen_list)
 
-    extra_improved_file = "hw/hw01/extra_improved_chosen.txt"
+    extra_improved_file = "extra_improved_chosen.txt"
     txtfile = open(extra_improved_file, 'w') 
     txtfile.writelines(extra_improved_list)
 
