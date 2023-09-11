@@ -84,6 +84,7 @@ def main():
     chosen_improved_list = []
     improved_chosen_list = []
     extra_improved_list = []
+    test_list = []
 
     while index < row_count:
         line = input_file.readline()
@@ -115,12 +116,13 @@ def main():
         if((is_outlier(quality_list) and float(student_score[1]) >= 5) or (float(student_score[1]) >= 6.00)):
             chosen_improved_list.append(student_name + '\n')
         
-        if(calculate_score_improved(quality_list, student_score)):
-            improved_chosen_list.append(original_list[0:5])
-
-
         if((float(student_score[1]) >= 6.00) or ((float(student_score[1]) >= 5.00) and (is_outlier(quality_list) or grade_outlier(semester_list) or grade_improvement(semester_list)))):
             extra_improved_list.append(student_name + '\n')
+
+        if(calculate_score_improved(quality_list, student_score)):
+            test_list = quality_list
+            test_list.insert(0, student_name)
+            improved_chosen_list.append(test_list)
 
         #print(student_name)
         #print(original_list)
