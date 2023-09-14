@@ -1,0 +1,46 @@
+{
+    "tests": [
+        {
+            "score": 2.5,
+            "max_score": 2.5,
+            "name": "test_lab03.py::test_even_weighted_1_2_3_4_5_6",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 2.5,
+            "max_score": 2.5,
+            "name": "test_lab03.py::test_even_weighted_9_17_4_5_4",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 2.5,
+            "max_score": 2.5,
+            "name": "test_lab03.py::test_couple_1_2_3_4_5_6",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 2.5,
+            "max_score": 2.5,
+            "name": "test_lab03.py::test_couple_c_6_s_1",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 5,
+            "max_score": 5,
+            "name": "test_lab03.py::test_count_appearances",
+            "output": "0\n0\n0\n1\n2\n1\n1\n0\n0\n0\n0\n0\n3\n0\n0\n\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 5,
+            "max_score": 5,
+            "name": "test_lab03.py::test_copy_file",
+            "output": "\n",
+            "visibility": "visible"
+        }
+    ]
+}

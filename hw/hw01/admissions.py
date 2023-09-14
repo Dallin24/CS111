@@ -52,7 +52,7 @@ def grade_outlier(list):
         return False
 
 def grade_improvement(list):
-    if(list[3] > (list[2]) and list[2] > (list[1]) and list[1] > (list[0])):
+    if(list[3] >= (list[2]) and list[2] >= (list[1]) and list[1] >= (list[0])):
         return True
     else:
         return False
@@ -104,7 +104,7 @@ def main():
         quality_list = floatList[0:4]
         semester_list = floatList[4:8]
 
-        student_score = [student_name, ("%.2f" % calculate_score(quality_list))]
+        student_score = student_name, ("%.2f" % calculate_score(quality_list))
         student_scores_list.append(student_score)
 
         if(float(student_score[1]) >= 6.00):

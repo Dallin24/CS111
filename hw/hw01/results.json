@@ -4,42 +4,42 @@
             "score": 0,
             "max_score": 15,
             "name": "test_admissions.py::test_student_scores",
-            "output": "Processing superheroes_tiny.csv...\ndone!\n\n@max_score(15)\n    def test_student_scores():\n>       assert filecmp.cmp(test_files / \"key_student_scores.csv\", this_folder / \"student_scores.csv\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000020B7262CF40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_student_scores.csv'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'student_scores.csv'))\nE        +    where <function cmp at 0x0000020B7262CF40> = filecmp.cmp\n\ntest_admissions.py:13: AssertionError",
+            "output": "Processing superheroes_tiny.csv...\ndone!\n\n@max_score(15)\n    def test_student_scores():\n>       assert filecmp.cmp(test_files / \"key_student_scores.csv\", this_folder / \"student_scores.csv\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000017FA6D50F40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_student_scores.csv'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'student_scores.csv'))\nE        +    where <function cmp at 0x0000017FA6D50F40> = filecmp.cmp\n\ntest_admissions.py:13: AssertionError",
             "visibility": "visible"
         },
         {
             "score": 0,
             "max_score": 5,
             "name": "test_admissions.py::test_chosen_student",
-            "output": "\n@max_score(5)\n    def test_chosen_student():\n>       assert filecmp.cmp(test_files / \"key_chosen_students.txt\", this_folder / \"chosen_students.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000020B7262CF40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_chosen_students.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'chosen_students.txt'))\nE        +    where <function cmp at 0x0000020B7262CF40> = filecmp.cmp\n\ntest_admissions.py:17: AssertionError",
+            "output": "\n@max_score(5)\n    def test_chosen_student():\n>       assert filecmp.cmp(test_files / \"key_chosen_students.txt\", this_folder / \"chosen_students.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000017FA6D50F40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_chosen_students.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'chosen_students.txt'))\nE        +    where <function cmp at 0x0000017FA6D50F40> = filecmp.cmp\n\ntest_admissions.py:17: AssertionError",
             "visibility": "visible"
         },
         {
             "score": 0,
             "max_score": 5,
             "name": "test_admissions.py::test_outliers",
-            "output": "\n@max_score(5)\n    def test_outliers():\n>       assert filecmp.cmp(test_files / \"key_outliers.txt\", this_folder / \"outliers.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000020B7262CF40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_outliers.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'outliers.txt'))\nE        +    where <function cmp at 0x0000020B7262CF40> = filecmp.cmp\n\ntest_admissions.py:21: AssertionError",
+            "output": "\n@max_score(5)\n    def test_outliers():\n>       assert filecmp.cmp(test_files / \"key_outliers.txt\", this_folder / \"outliers.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000017FA6D50F40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_outliers.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'outliers.txt'))\nE        +    where <function cmp at 0x0000017FA6D50F40> = filecmp.cmp\n\ntest_admissions.py:21: AssertionError",
             "visibility": "visible"
         },
         {
             "score": 0,
             "max_score": 5,
             "name": "test_admissions.py::test_improved_chosen",
-            "output": "\n@max_score(5)\n    def test_improved_chosen():\n>       assert filecmp.cmp(test_files / \"key_improved_chosen.csv\", this_folder / \"improved_chosen.csv\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000020B7262CF40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_improved_chosen.csv'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'improved_chosen.csv'))\nE        +    where <function cmp at 0x0000020B7262CF40> = filecmp.cmp\n\ntest_admissions.py:25: AssertionError",
+            "output": "\n@max_score(5)\n    def test_improved_chosen():\n>       assert filecmp.cmp(test_files / \"key_improved_chosen.csv\", this_folder / \"improved_chosen.csv\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000017FA6D50F40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_improved_chosen.csv'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'improved_chosen.csv'))\nE        +    where <function cmp at 0x0000017FA6D50F40> = filecmp.cmp\n\ntest_admissions.py:25: AssertionError",
             "visibility": "visible"
         },
         {
             "score": 0,
             "max_score": 5,
             "name": "test_admissions.py::test_chosen_improved",
-            "output": "\n@max_score(5)\n    def test_chosen_improved():\n>       assert filecmp.cmp(test_files / \"key_chosen_improved.txt\", this_folder / \"chosen_improved.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000020B7262CF40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_chosen_improved.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'chosen_improved.txt'))\nE        +    where <function cmp at 0x0000020B7262CF40> = filecmp.cmp\n\ntest_admissions.py:29: AssertionError",
+            "output": "\n@max_score(5)\n    def test_chosen_improved():\n>       assert filecmp.cmp(test_files / \"key_chosen_improved.txt\", this_folder / \"chosen_improved.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000017FA6D50F40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_chosen_improved.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'chosen_improved.txt'))\nE        +    where <function cmp at 0x0000017FA6D50F40> = filecmp.cmp\n\ntest_admissions.py:29: AssertionError",
             "visibility": "visible"
         },
         {
             "score": 0,
             "max_score": 15,
             "name": "test_admissions.py::test_extra_improved_chosen",
-            "output": "\n@max_score(15)\n    def test_extra_improved_chosen():\n>       assert filecmp.cmp(test_files / \"key_extra_improved_chosen.txt\", this_folder / \"extra_improved_chosen.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000020B7262CF40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_extra_improved_chosen.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'extra_improved_chosen.txt'))\nE        +    where <function cmp at 0x0000020B7262CF40> = filecmp.cmp\n\ntest_admissions.py:33: AssertionError",
+            "output": "\n@max_score(15)\n    def test_extra_improved_chosen():\n>       assert filecmp.cmp(test_files / \"key_extra_improved_chosen.txt\", this_folder / \"extra_improved_chosen.txt\")\nE       AssertionError: assert False\nE        +  where False = <function cmp at 0x0000017FA6D50F40>((WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01/test_files') / 'key_extra_improved_chosen.txt'), (WindowsPath('C:/Users/the4g/Documents/Dev/CS111/hw/hw01') / 'extra_improved_chosen.txt'))\nE        +    where <function cmp at 0x0000017FA6D50F40> = filecmp.cmp\n\ntest_admissions.py:33: AssertionError",
             "visibility": "visible"
         }
     ]

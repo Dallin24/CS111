@@ -1,6 +1,4 @@
-def wwpd():
-    """What would Python Display
-
+"""What would Python Display
     >>> True and 13
     13
     >>> False or 0
@@ -35,7 +33,42 @@ def wwpd():
     False
 
     """
+    
 
+def func(a, b):
+    """Test func
+    >>> func(10, 6)
+    5
+    >>> func(4, 6)
+    6
+    >>> func(0, 3)
+    10
+    """
+    if a == 4:
+        return 6
+    elif b % 2 == 0:
+        return a // 2
+    else:
+        return 3 * b + 1
+    
+
+def how_big(x):
+    """ How Big
+    >>> how_big(7)
+    'big'
+    >>> how_big(12)
+    huge
+    >>> how_big(-1)
+    nothing
+    """
+    if x > 10:
+        print('huge')
+    elif x > 5:
+        return 'big'
+    elif x > 0:
+        print('small')
+    else:
+        print("nothing")
 
 def falling(n, k):
     """Compute the falling factorial of n to depth k.
@@ -50,7 +83,16 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    if(k == 0):
+        return 1
     
+    result = n
+    count = 0
+    while(count < k - 1):
+        result*=(n - 1)
+        count+=1
+        n-=1
+    return result
     
 
 def sum_digits(y):
@@ -67,6 +109,14 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    repeatNum = len(str(y))
+
+    index = 0
+    total = 0
+    while(index < repeatNum):
+        total += int(str(y)[index])
+        index+=1
+    return total
 
 
 ###################################################
