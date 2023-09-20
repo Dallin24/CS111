@@ -88,12 +88,6 @@ def main():
 
     while index < row_count:
         line = input_file.readline()
-
-        if index == row_count - 1:
-            line = line
-        else:
-            line = line[:-1]
-
         original_list = line.split(',')
         student_name = original_list[0]
         newList = original_list[1:]
@@ -104,8 +98,9 @@ def main():
         quality_list = floatList[0:4]
         semester_list = floatList[4:8]
 
-        student_score = student_name, ("%.2f" % calculate_score(quality_list))
-        student_scores_list.append(student_score)
+        raw_score = ("%.2f" % calculate_score(quality_list))
+        student_score = student_name, raw_score
+        student_scores_list.append(student_name + ','+ raw_score + '\n')
 
         if(float(student_score[1]) >= 6.00):
             chosen_students_list.append(student_name + '\n')
@@ -120,9 +115,13 @@ def main():
             extra_improved_list.append(student_name + '\n')
 
         if(calculate_score_improved(quality_list, student_score)):
-            test_list = quality_list
-            test_list.insert(0, student_name)
-            improved_chosen_list.append(test_list)
+            # test_list = quality_list
+            # test_list.insert(0, student_name)
+            list_string = str(quality_list)
+            list_string = list_string[:-1]
+            list_string = list_string[1:]
+            list_string = list_string.replace(" ", "")
+            improved_chosen_list.append(student_name + ',' + list_string + '\n')
 
         #print(student_name)
         #print(original_list)
@@ -135,11 +134,14 @@ def main():
     
     #print(student_scores)
 
+    # student_scores_file = "student_scores.csv"
+    # with open(student_scores_file, 'w', newline='') as student_scores_csvfile:
+    #     csvwriter = csv.writer(student_scores_csvfile)
+    #     csvwriter.writerows(student_scores_list)
     student_scores_file = "student_scores.csv"
-    with open(student_scores_file, 'w', newline='') as student_scores_csvfile:
-        csvwriter = csv.writer(student_scores_csvfile)
-        csvwriter.writerows(student_scores_list)
-    
+    student_scores_csvfile = open(student_scores_file, 'w')
+    student_scores_csvfile.writelines(student_scores_list)
+
     chosen_students_file = "chosen_students.txt"
     chosen_students_txtfile = open(chosen_students_file, 'w') 
     chosen_students_txtfile.writelines(chosen_students_list)
@@ -152,10 +154,13 @@ def main():
     chosen_improved_txtfile = open(chosen_improved_file, 'w') 
     chosen_improved_txtfile.writelines(chosen_improved_list)
 
+    # improved_chosen_file = "improved_chosen.csv"
+    # with open(improved_chosen_file, 'w', newline='') as  improved_chosen_csvfile:
+    #     csvwriter = csv.writer(improved_chosen_csvfile)
+    #     csvwriter.writerows(improved_chosen_list)
     improved_chosen_file = "improved_chosen.csv"
-    with open(improved_chosen_file, 'w', newline='') as  improved_chosen_csvfile:
-        csvwriter = csv.writer(improved_chosen_csvfile)
-        csvwriter.writerows(improved_chosen_list)
+    improved_chosen_csvfile = open(improved_chosen_file, 'w')
+    improved_chosen_csvfile.writelines(improved_chosen_list)
 
     extra_improved_file = "extra_improved_chosen.txt"
     extra_improved_txtfile = open(extra_improved_file, 'w') 
