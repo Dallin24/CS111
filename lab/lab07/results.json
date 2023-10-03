@@ -1,0 +1,11 @@
+{
+    "tests": [
+        {
+            "score": 6,
+            "max_score": 6,
+            "name": "test_lab07.py::test_keyboard_add_button",
+            "output": "\n",
+            "visibility": "visible"
+        }
+    ]
+}

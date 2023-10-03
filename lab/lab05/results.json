@@ -1,0 +1,53 @@
+{
+    "tests": [
+        {
+            "score": 3.0,
+            "max_score": 3.0,
+            "name": "test_lab05.py::test_no_flags[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 3.0,
+            "max_score": 3.0,
+            "name": "test_lab05.py::test_p_flag[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 2.0,
+            "max_score": 2.0,
+            "name": "test_lab05.py::test_i_flag[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 3.0,
+            "max_score": 3.0,
+            "name": "test_lab05.py::test_h_flag[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 3.0,
+            "max_score": 3.0,
+            "name": "test_lab05.py::test_w_flag_with_no_content[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 3.0,
+            "max_score": 3.0,
+            "name": "test_lab05.py::test_w_flag_with_content[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        },
+        {
+            "score": 3.0,
+            "max_score": 3.0,
+            "name": "test_lab05.py::test_r_flag[everything-else]",
+            "output": "\n",
+            "visibility": "visible"
+        }
+    ]
+}
