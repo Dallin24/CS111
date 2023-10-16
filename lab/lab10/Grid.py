@@ -15,18 +15,22 @@ class Grid:
             self.array.append(row)
             
     def in_bounds(self, x, y):
-        return (x >= self.width >= 0 or y >= self.height >= 0)
+        return ((self.width >= x >= 0) and (self.height >= y >= 0))
+
     
     def get(self, x, y):
-        if(self.in_bounds(x,y)):
-            return 'error'
+        print(f'{x}, {y}')
+        print(self.in_bounds(x,y))
+        if not(self.in_bounds(x,y)):
+            raise IndexError
         
         current_value = self.array[y][x]
         return current_value
     
     def set(self, x, y, value):
-        if(self.in_bounds(x,y)):
-            return 'error'
+        if not(self.in_bounds(x,y)):
+            raise IndexError
+        
         self.array[y][x] = value
         print(self.array)
         return None
