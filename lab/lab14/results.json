@@ -1,0 +1,11 @@
+{
+    "tests": [
+        {
+            "score": 0,
+            "max_score": 5,
+            "name": "test_lab14.py::test_every_other",
+            "output": "<1>\n<1 3>\n\nLink = <class 'lab14.Link'>, every_other = <function every_other at 0x000002CBFB84BCE0>, monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002CBFB780110>\n\n    @max_score(5)\n    @with_import('lab14', 'every_other')\n    @with_import('lab14', 'Link')\n    def test_every_other(Link, every_other, monkeypatch):\n        monkeypatch.setattr(Link, '__eq__', lambda self,\n                            other: link_eq(Link, self, other))\n    \n        key = Link.empty\n        link = Link.empty\n        every_other(link)\n        assert link == key\n    \n        key = Link(1)\n        link = Link(1)\n        every_other(link)\n        assert link == key\n    \n        key = Link(1, Link(3))\n        link = Link(1, Link(2, Link(3, Link(4))))\n        every_other(link)\n>       assert link == key\nE       assert Link(1, Link(2, Link(3, Link(4)))) == Link(1, Link(3))\n\ntest_lab14.py:91: AssertionError",
+            "visibility": "visible"
+        }
+    ]
+}

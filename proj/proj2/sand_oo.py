@@ -6,8 +6,45 @@ import datetime
 import tkinter
 from Grid import Grid
 
-
-"""Insert the Sand class here"""
+class Sand:
+    def __init__(self, grid, x, y):
+        self.grid = grid
+        self.x = x
+        self.y = y
+    
+    def __str__(self):
+        return f'Sand({self.x},{self.y})'
+    
+    def gravity(self):
+        if self.is_move_ok(self.x, self.y+1):
+            return (self.x, self.y+1)
+        elif self.is_move_ok(self.x-1, self.y+1):
+            return (self.x-1, self.y+1)
+        elif self.is_move_ok(self.x+1, self.y+1):
+            return (self.x+1, self.y+1)
+                
+        return None
+    
+    def is_move_ok(self, x_to, y_to):
+        if (y_to >= self.grid.height or x_to >= self.grid.width or x_to < 0):
+            return False
+        
+        destination_spot = self.grid.get(x_to, y_to)
+        
+        if ((destination_spot != None)):
+            return False
+        
+        if(self.x != x_to and (self.grid.get(x_to, y_to - 1) != None)):
+            return False
+        return True
+    
+    def move(self, physics):
+        if(physics() == None):
+            return
+        self.grid.set(self.x, self.y, None)
+        self.x, self.y = physics()
+        self.grid.set(self.x, self.y, self)
+        
 
 
 all_sand = []
@@ -27,7 +64,12 @@ def add_sand(grid, x, y):
     :param x: the x coordinate to add sand to
     :param y: the y coordinate to add sand to
     """
-    pass
+    if not(grid.get(x,y) == None):
+        return
+    
+    new_sand = Sand(grid, x, y)
+    all_sand.append(new_sand)
+    grid.set(x,y, new_sand)
 
 
 def remove_sand(grid, x, y):
@@ -43,7 +85,15 @@ def remove_sand(grid, x, y):
     :param x: the x coordinate to remove sand from
     :param y: the y coordinate to remove sand from
     """
-    pass
+    if (not isinstance(grid.get(x,y), Sand)):
+        return
+
+    grid.set(x,y, None)
+    
+    for item in all_sand:
+        if (item.x == x and item.y == y):
+            all_sand.remove(item)
+    
 
 
 def do_whole_grid():
@@ -51,7 +101,9 @@ def do_whole_grid():
     Do one round of gravity over the whole grid.
     """
     all_sand.sort(key=lambda particle: (-particle.y, particle.x))
-    """Write your code here"""
+    for item in all_sand:
+        item.move(item.gravity)
+        
 
 
 #########################################################

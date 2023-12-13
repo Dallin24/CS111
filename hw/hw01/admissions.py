@@ -6,6 +6,17 @@
 # Returns True if the length of row is 8 and all elements are floats
 import csv
 
+def multiplier_maker(n):
+    return lambda element : element * n
+
+def make_water( multiplier ):
+    nhydrogen,noxygen = 2.0, 1.0
+    nmolecules = multiplier_maker()
+    print( str(multiplier(nhydrogen) ) + ' atoms hydrogen.' )
+    print( str(multiplier(noxygen) ) + ' atoms oxygen.' )
+    print( 'Produces ' + str(multiplier(nmolecules)) + ' molecules of water.' )
+
+
 def check_row_types(row):
     if len(row) != 8:
         print("Length incorrect! (should be 8): " + str(row))
@@ -57,6 +68,7 @@ def grade_improvement(list):
     else:
         return False
 def main():
+    make_water(lambda element: element * n)
     # Change this line of code as needed but 
     # make sure to change it back to "superheroes_tiny.csv"
     # before turning in your work!
