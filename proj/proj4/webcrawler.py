@@ -1,4 +1,6 @@
 import pprint
+from matplotlib import pyplot as plt
+import numpy as np
 import requests
 import bs4
 import matplotlib
@@ -64,66 +66,70 @@ def main():
         
         # Task 2
         visiting_list = [input_link]
-        visiting_dict = {input_link:0}
+        visiting_dict = {input_link:1}
         
         # Task 3
         current_index = 0
+        
         while current_index < len(visiting_list):
-            print(f'Cycle: {current_index}')
-      
             current_link = visiting_list[current_index]
-            print(f'  Searching Link: {current_link}')
+            print(f'Cycle Index: {current_index}')
+            print(f'Cycle Link: {current_link}')
+            
             if (link_validity.can_follow_link(current_link)):
-                print('  Can follow link? Yes')
+                print('  Able to read? Yes')
+
                 page = requests.get(current_link)
                 html = bs4.BeautifulSoup(page.text,"html.parser")
-                
-                visit_count = visiting_dict.get(current_link)
-                visiting_dict.update({current_link:visit_count+1})
-                
                 for tag in html.find_all('a'):
                     found_link = tag.get('href') 
                     
-                   
-                    
-                    # Aware 1 & 5
+                    # Warning 1 & 5
                     if('#' in found_link):
-                        current_link = current_link[0:found_link.index('#')]
+                        found_link = found_link[0:found_link.index('#')]
                     
-                    # Aware 2
+                    # Warning 2
                     elif('/' in found_link and found_link.index('/') == 0):
                         found_link = domain_name + found_link
                         
-                    # Aware 3
+                    # Warning 3
                     elif (found_link[0:4] != 'http'):
                         enumeration = [i for i, ltr in enumerate(current_link) if ltr == '/']
                         current_link = current_link[0:enumeration[len(enumeration)-1]]
                         current_link += '/' + found_link
                         found_link = current_link  
                     
-                    # Aware 4
+                    # Warning 4
                     else:
                         found_link = found_link
-                        
+                    
                     print(f'  Found Link: {found_link}')
                     
-                    if (found_link not in visiting_list):
+                    if(found_link not in visiting_list):
                         visiting_list.append(found_link)
                         visiting_dict.update({found_link:0})
                     
-                    if (found_link in visiting_list and visiting_list.index(found_link) < current_index):
+                    if(found_link in visiting_list):
                         visit_count = visiting_dict.get(found_link)
                         visiting_dict.update({found_link:visit_count+1})
                         
-                    # if(href in visiting_list and visiting_list.index(href) < current_index):
-                    #     visiting_dict.update({href: visiting_dict.get(href) + 1})
-                    # else:
-                    #     visiting_dict.update({href:0})
-                    #     visiting_list.append(href)
+                    
+                    
             else:
-                print('  Can follow link? No')        
+                print('  Able to read? No')
+            
             current_index+=1
+            
         pprint.pprint(visiting_dict)
+        
+        # Task 4
+        # bins = np.histogram(list(visiting_dict.values()))
+        # print(list(visiting_dict.values()))
+        # print(bins)
+        # plt.hist(bins[:-1], bins, weights=counts)
+        # plt.show()
+        # plt.savefig(output_file_1)
+        # plt.clf()
     
     elif(command == '-p'):
     # The -p command is to extract and plot data. 
