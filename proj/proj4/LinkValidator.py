@@ -7,14 +7,19 @@ class LinkValidator:
         self.blocked_list = blocked_list
     
     def can_follow_link(self, url):
-        if(url[7:len(self.domain_name)] == self.domain_name[7:] or url[8:len(self.domain_name)] == self.domain_name[8:]):
-            
-            paths = url[(len(self.domain_name)):]
-            next_slash = paths[1:].find('/')
-            paths = paths[:next_slash + 1]
-            if(paths in self.blocked_list):
-                return False
-            else:
-                return True
-        else:
+        whole_block_list = []
+        for path in self.blocked_list:
+            whole_block_list.append(self.domain_name + path)
+        
+        enumeration = [i for i, ltr in enumerate(url) if ltr == '/']
+        short_url = url[0:enumeration[2]]
+
+        
+        if(short_url != self.domain_name):
             return False
+
+        for blocked_path in whole_block_list:
+            if(blocked_path in url):
+                return False
+        
+        return True
