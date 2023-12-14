@@ -82,14 +82,31 @@ def main():
                 visiting_dict.update({current_link:visit_count+1})
                 
                 for tag in html.find_all('a'):
-                    found_link = tag.get('href')
-                    if (found_link[0:4] != 'http'):
+                    found_link = tag.get('href') 
+                    
+                   
+                    
+                    # Aware 1 & 5
+                    if('#' in found_link):
+                        current_link = current_link[0:found_link.index('#')]
+                    
+                    # Aware 2
+                    elif('/' in found_link and found_link.index('/') == 0):
+                        found_link = domain_name + found_link
+                        
+                    # Aware 3
+                    elif (found_link[0:4] != 'http'):
                         enumeration = [i for i, ltr in enumerate(current_link) if ltr == '/']
                         current_link = current_link[0:enumeration[len(enumeration)-1]]
                         current_link += '/' + found_link
-                        found_link = current_link   
+                        found_link = current_link  
                     
+                    # Aware 4
+                    else:
+                        found_link = found_link
+                        
                     print(f'  Found Link: {found_link}')
+                    
                     if (found_link not in visiting_list):
                         visiting_list.append(found_link)
                         visiting_dict.update({found_link:0})
